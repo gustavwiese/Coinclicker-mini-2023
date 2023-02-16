@@ -24,6 +24,8 @@ body {
 
 #game_elements {
      grid-area: 1 /1;
+     position: relative;
+     overflow: hidden;
 }
 
 /* positioning elements */
@@ -31,7 +33,7 @@ body {
 #coin1_container {
     position: absolute;
     
-    top: 50vw;
+    top: 0;
     left: 10vw;
 }
 
@@ -42,7 +44,7 @@ body {
 #coin2_container {
     position: absolute;
     
-    top: 35vw;
+    top: 0;
     left: 40vw;
 }
 
@@ -53,7 +55,7 @@ body {
 #coin3_container {
     position: absolute;
     
-    top: 20vw;
+    top: 0;
     left: 70vw;
 }
 
@@ -64,7 +66,7 @@ body {
 #bomb_container {
     position: absolute;
     
-    top: 20vw;
+    top: 0;
     left: 30vw;
 }
 
@@ -84,6 +86,48 @@ body {
 }
 
 /* Animations */
+
+.falling {
+  animation-name: falling;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes falling {
+  0% {
+    transform: translate(0, -300%);
+  }
+
+  100% {
+    transform: translate(0, 300%);
+  }
+}
+
+.zoom_out {
+  animation-name: zoom_out;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes zoom_out {
+  0% {
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.paused{
+    animation-play-state: paused;
+}
+
 
 
 
